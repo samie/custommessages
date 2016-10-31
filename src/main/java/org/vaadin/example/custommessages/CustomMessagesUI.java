@@ -29,7 +29,6 @@ import javax.servlet.ServletException;
  * intended to be overridden to add component to the user interface and
  * initialize non-component functionality.
  */
-@Theme("mytheme")
 public class CustomMessagesUI extends UI {
 
     @Override
@@ -59,16 +58,12 @@ public class CustomMessagesUI extends UI {
 
         protected void servletInitialized() throws ServletException {
             super.servletInitialized();
-            getService().addSessionInitListener(sessionInitEvent -> {
-
-                sessionInitEvent.getService().setSystemMessagesProvider(systemMessagesInfo -> {
-                    CustomizedSystemMessages msgs = new CustomizedSystemMessages();
-                    msgs.setCommunicationErrorMessage("Yhteys palvelimeen poikki");
-                    msgs.setSessionExpiredCaption("Istuntosi vanhentui");
-                    return msgs;
-                });
+            getService().setSystemMessagesProvider(systemMessagesInfo -> {
+                CustomizedSystemMessages msgs = new CustomizedSystemMessages();
+                msgs.setCommunicationErrorMessage("Yhteys palvelimeen poikki");
+                msgs.setSessionExpiredCaption("Istuntosi vanhentui");
+                return msgs;
             });
-
         }
 
     }
