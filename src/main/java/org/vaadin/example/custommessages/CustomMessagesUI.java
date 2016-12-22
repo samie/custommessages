@@ -62,6 +62,7 @@ public class CustomMessagesUI extends UI {
                 CustomizedSystemMessages msgs = new CustomizedSystemMessages();
                 msgs.setCommunicationErrorMessage("Yhteys palvelimeen poikki");
                 msgs.setSessionExpiredCaption("Istuntosi vanhentui");
+                msgs.setSessionExpiredMessage("Paina tästä jatkaaksesi");
                 return msgs;
             });
         }
